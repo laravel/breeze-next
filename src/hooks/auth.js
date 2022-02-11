@@ -28,7 +28,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .post('/register', props)
             .then(() => revalidate())
             .catch(error => {
-                if (error.response.status != 422) throw error
+                if (error.response.status !== 422) throw error
 
                 setErrors(Object.values(error.response.data.errors).flat())
             })
@@ -44,7 +44,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .post('/login', props)
             .then(() => revalidate())
             .catch(error => {
-                if (error.response.status != 422) throw error
+                if (error.response.status !== 422) throw error
 
                 setErrors(Object.values(error.response.data.errors).flat())
             })
@@ -60,7 +60,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .post('/forgot-password', { email })
             .then(response => setStatus(response.data.status))
             .catch(error => {
-                if (error.response.status != 422) throw error
+                if (error.response.status !== 422) throw error
 
                 setErrors(Object.values(error.response.data.errors).flat())
             })
@@ -99,8 +99,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     }
 
     useEffect(() => {
-        if (middleware == 'guest' && redirectIfAuthenticated && user) router.push(redirectIfAuthenticated)
-        if (middleware == 'auth' && error) logout()
+        if (middleware === 'guest' && redirectIfAuthenticated && user) router.push(redirectIfAuthenticated)
+        if (middleware === 'auth' && error) logout()
     }, [user, error])
 
     return {
