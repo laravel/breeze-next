@@ -48,7 +48,6 @@ const Login = () => {
                         </a>
                     </Link>
                 }>
-
                 {/* Session Status */}
                 <AuthSessionStatus className="mb-4" status={status} />
 
