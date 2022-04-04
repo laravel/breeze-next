@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     const router = useRouter()
 
-    const { data: user, error, revalidate } = useSWR('/api/user', () =>
+    const { data: user, error, mutate } = useSWR('/api/user', () =>
         axios
             .get('/api/user')
             .then(res => res.data)
@@ -26,7 +26,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
         axios
             .post('/register', props)
-            .then(() => revalidate())
+            .then(() => mutate())
             .catch(error => {
                 if (error.response.status !== 422) throw error
 
@@ -42,7 +42,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
         axios
             .post('/login', props)
-            .then(() => revalidate())
+            .then(() => mutate())
             .catch(error => {
                 if (error.response.status !== 422) throw error
 
@@ -90,9 +90,9 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
     const logout = async () => {
         if (! error) {
-            await axios.post('/logout')
-
-            revalidate()
+            await axios
+                .post('/logout')
+                 .then(() => mutate())
         }
 
         window.location.pathname = '/login'
