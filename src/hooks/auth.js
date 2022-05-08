@@ -76,7 +76,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .post('/reset-password', { token: router.query.token, ...props })
             .then(response => router.push('/login?reset=' + btoa(response.data.status)))
             .catch(error => {
-                if (error.response.status != 422) throw error
+                if (error.response.status !== 422) throw error
 
                 setErrors(Object.values(error.response.data.errors).flat())
             })

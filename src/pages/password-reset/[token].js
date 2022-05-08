@@ -18,7 +18,7 @@ const PasswordReset = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [password_confirmation, setPasswordConfirmation] = useState('')
+    const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [errors, setErrors] = useState([])
     const [status, setStatus] = useState(null)
 
@@ -28,7 +28,7 @@ const PasswordReset = () => {
         resetPassword({
             email,
             password,
-            password_confirmation,
+            passwordConfirmation,
             setErrors,
             setStatus,
         })
@@ -48,7 +48,6 @@ const PasswordReset = () => {
                         </a>
                     </Link>
                 }>
-
                 {/* Session Status */}
                 <AuthSessionStatus className="mb-4" status={status} />
 
@@ -86,14 +85,14 @@ const PasswordReset = () => {
 
                     {/* Confirm Password */}
                     <div className="mt-4">
-                        <Label htmlFor="password_confirmation">
+                        <Label htmlFor="passwordConfirmation">
                             Confirm Password
                         </Label>
 
                         <Input
-                            id="password_confirmation"
+                            id="passwordConfirmation"
                             type="password"
-                            value={password_confirmation}
+                            value={passwordConfirmation}
                             className="block mt-1 w-full"
                             onChange={event =>
                                 setPasswordConfirmation(event.target.value)

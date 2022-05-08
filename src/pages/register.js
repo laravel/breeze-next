@@ -18,13 +18,13 @@ const Register = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [password_confirmation, setPasswordConfirmation] = useState('')
+    const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [errors, setErrors] = useState([])
 
     const submitForm = event => {
         event.preventDefault()
 
-        register({ name, email, password, password_confirmation, setErrors })
+        register({ name, email, password, passwordConfirmation, setErrors })
     }
 
     return (
@@ -37,7 +37,6 @@ const Register = () => {
                         </a>
                     </Link>
                 }>
-
                 {/* Validation Errors */}
                 <AuthValidationErrors className="mb-4" errors={errors} />
 
@@ -88,14 +87,14 @@ const Register = () => {
 
                     {/* Confirm Password */}
                     <div className="mt-4">
-                        <Label htmlFor="password_confirmation">
+                        <Label htmlFor="passwordConfirmation">
                             Confirm Password
                         </Label>
 
                         <Input
-                            id="password_confirmation"
+                            id="passwordConfirmation"
                             type="password"
-                            value={password_confirmation}
+                            value={passwordConfirmation}
                             className="block mt-1 w-full"
                             onChange={event =>
                                 setPasswordConfirmation(event.target.value)
