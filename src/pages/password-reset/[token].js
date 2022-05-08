@@ -28,7 +28,7 @@ const PasswordReset = () => {
         resetPassword({
             email,
             password,
-            passwordConfirmation,
+            password_confirmation: passwordConfirmation,
             setErrors,
             setStatus,
         })
