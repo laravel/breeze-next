@@ -67,11 +67,9 @@ export default ExamplePage
 
 > Note: You will need to use [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) (`user?.name` instead of `user.name`) when accessing properties on the user object to account for Next.js's initial server-side render.
 
-### Using Laravel Named Routes
+### Named Routes
 
-You'll need to take additional steps in order to use your backend Laravel named routes within your frontend app's React components. Luckily there is a package named [Ziggy](https://github.com/tighten/ziggy#spas-or-separate-repos) by Tighten that you can use to communicate the routes to your frontend.
-
-
+For convenience, [Ziggy](https://github.com/tighten/ziggy#spas-or-separate-repos) may be used in order to reference your Laravel application's named route URLs from your React application.
 
 ## Contributing
 
