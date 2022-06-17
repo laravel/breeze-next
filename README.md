@@ -69,7 +69,7 @@ export default ExamplePage
 
 ### Named Routes
 
-For convenience, [Ziggy](https://github.com/tighten/ziggy#spas-or-separate-repos) may be used in order to reference your Laravel application's named route URLs from your React application.
+For convenience, [Ziggy](https://github.com/tighten/ziggy#spas-or-separate-repos) may be used to reference your Laravel application's named route URLs from your React application.
 
 ## Contributing
 
