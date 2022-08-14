@@ -105,6 +105,11 @@ const Login = () => {
                     </div>
 
                     <div className="flex items-center justify-end mt-4">
+                        <Link href="/register">
+                            <a className="underline text-sm text-gray-600 hover:text-gray-900 mr-2">
+                                Don't have an account?
+                            </a>
+                        </Link>
                         <Link href="/forgot-password">
                             <a className="underline text-sm text-gray-600 hover:text-gray-900">
                                 Forgot your password?
