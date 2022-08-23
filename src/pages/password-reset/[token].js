@@ -1,10 +1,10 @@
 import ApplicationLogo from '@/components/ApplicationLogo'
 import AuthCard from '@/components/AuthCard'
 import AuthSessionStatus from '@/components/AuthSessionStatus'
-import AuthValidationErrors from '@/components/AuthValidationErrors'
 import Button from '@/components/Button'
 import GuestLayout from '@/components/Layouts/GuestLayout'
 import Input from '@/components/Input'
+import InputError from '@/Components/InputError'
 import Label from '@/components/Label'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
@@ -51,9 +51,6 @@ const PasswordReset = () => {
                 {/* Session Status */}
                 <AuthSessionStatus className="mb-4" status={status} />
 
-                {/* Validation Errors */}
-                <AuthValidationErrors className="mb-4" errors={errors} />
-
                 <form onSubmit={submitForm}>
                     {/* Email Address */}
                     <div>
@@ -68,6 +65,8 @@ const PasswordReset = () => {
                             required
                             autoFocus
                         />
+
+                        <InputError messages={errors.email} className="mt-2" />
                     </div>
 
                     {/* Password */}
@@ -81,6 +80,8 @@ const PasswordReset = () => {
                             onChange={event => setPassword(event.target.value)}
                             required
                         />
+
+                        <InputError messages={errors.password} className="mt-2" />
                     </div>
 
                     {/* Confirm Password */}
@@ -99,6 +100,8 @@ const PasswordReset = () => {
                             }
                             required
                         />
+
+                        <InputError messages={errors.password_confirmation} className="mt-2" />
                     </div>
 
                     <div className="flex items-center justify-end mt-4">
