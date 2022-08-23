@@ -66,7 +66,7 @@ const PasswordReset = () => {
                             autoFocus
                         />
 
-                        <InputError message={errors.email} className="mt-2" />
+                        <InputError messages={errors.email} className="mt-2" />
                     </div>
 
                     {/* Password */}
@@ -81,7 +81,7 @@ const PasswordReset = () => {
                             required
                         />
 
-                        <InputError message={errors.password} className="mt-2" />
+                        <InputError messages={errors.password} className="mt-2" />
                     </div>
 
                     {/* Confirm Password */}
@@ -101,7 +101,7 @@ const PasswordReset = () => {
                             required
                         />
 
-                        <InputError message={errors.password_confirmation} className="mt-2" />
+                        <InputError messages={errors.password_confirmation} className="mt-2" />
                     </div>
 
                     <div className="flex items-center justify-end mt-4">

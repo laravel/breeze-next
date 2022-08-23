@@ -68,7 +68,7 @@ const Login = () => {
                             autoFocus
                         />
 
-                        <InputError message={errors.email} className="mt-2" />
+                        <InputError messages={errors.email} className="mt-2" />
                     </div>
 
                     {/* Password */}
@@ -85,7 +85,7 @@ const Login = () => {
                             autoComplete="current-password"
                         />
 
-                        <InputError message={errors.password} className="mt-2" />
+                        <InputError messages={errors.password} className="mt-2" />
                     </div>
 
                     {/* Remember Me */}

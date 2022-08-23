@@ -58,7 +58,7 @@ const ForgotPassword = () => {
                             autoFocus
                         />
 
-                        <InputError message={errors.email} className="mt-2" />
+                        <InputError messages={errors.email} className="mt-2" />
                     </div>
 
                     <div className="flex items-center justify-end mt-4">
