@@ -1,10 +1,10 @@
 import ApplicationLogo from '@/components/ApplicationLogo'
 import AuthCard from '@/components/AuthCard'
 import AuthSessionStatus from '@/components/AuthSessionStatus'
-import AuthValidationErrors from '@/components/AuthValidationErrors'
 import Button from '@/components/Button'
 import GuestLayout from '@/components/Layouts/GuestLayout'
 import Input from '@/components/Input'
+import InputError from '@/Components/InputError'
 import Label from '@/components/Label'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
@@ -53,9 +53,6 @@ const Login = () => {
                 {/* Session Status */}
                 <AuthSessionStatus className="mb-4" status={status} />
 
-                {/* Validation Errors */}
-                <AuthValidationErrors className="mb-4" errors={errors} />
-
                 <form onSubmit={submitForm}>
                     {/* Email Address */}
                     <div>
@@ -70,6 +67,8 @@ const Login = () => {
                             required
                             autoFocus
                         />
+
+                        <InputError message={errors.email} className="mt-2" />
                     </div>
 
                     {/* Password */}
@@ -85,6 +84,8 @@ const Login = () => {
                             required
                             autoComplete="current-password"
                         />
+
+                        <InputError message={errors.password} className="mt-2" />
                     </div>
 
                     {/* Remember Me */}
