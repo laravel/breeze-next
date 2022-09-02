@@ -22,12 +22,13 @@ module.exports = {
     rules: {
         'import/prefer-default-export': 0,
         'no-console': 'warn',
+        'no-unused-vars': 0,
         'no-nested-ternary': 0,
         'no-underscore-dangle': 0,
         'no-unused-expressions': ['error', { allowTernary: true }],
         camelcase: 0,
         'react/self-closing-comp': 1,
-        'react/jsx-filename-extension': [1, { extensions: ['.js', 'jsx'] }],
+        'react/jsx-filename-extension': [1, { extensions: ['.js', 'jsx', '.tsx'] }],
         'react/prop-types': 0,
         'react/destructuring-assignment': 0,
         'react/jsx-no-comment-textnodes': 0,
@@ -38,6 +39,6 @@ module.exports = {
         'react/react-in-jsx-scope': 0,
         'linebreak-style': ['error', 'unix'],
         semi: ['error', 'never'],
-        'prettier/prettier': ['error', { "endOfLine": "off" }, { usePrettierrc: true }],
+        'prettier/prettier': ['warn', { 'endOfLine': 'auto' }, { usePrettierrc: true }],
     },
 }
