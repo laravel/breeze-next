@@ -22,12 +22,14 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [shouldRemember, setShouldRemember] = useState(false)
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState<{
+        email?: any[], password?: any[], remember?: any[], length?: number
+    }>({})
     const [status, setStatus] = useState(null)
 
     useEffect(() => {
         if (router.query.reset?.length > 0 && errors.length === 0) {
-            setStatus(atob(router.query.reset))
+            setStatus(atob(String(router.query.reset)))
         } else {
             setStatus(null)
         }

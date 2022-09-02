@@ -19,7 +19,9 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState<{
+        name?: any[], email?: any[], password?: any[], password_confirmation?: any[]
+    }>({})
 
     const submitForm = event => {
         event.preventDefault()

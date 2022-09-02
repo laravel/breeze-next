@@ -19,7 +19,9 @@ const PasswordReset = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState<{
+        email?: any[], password?: any[], password_confirmation?: any[]
+    }>({})
     const [status, setStatus] = useState(null)
 
     const submitForm = event => {
@@ -35,7 +37,7 @@ const PasswordReset = () => {
     }
 
     useEffect(() => {
-        setEmail(router.query.email || '')
+        setEmail(String(router.query.email || ''))
     }, [router.query.email])
 
     return (

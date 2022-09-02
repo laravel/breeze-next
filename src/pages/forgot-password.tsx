@@ -14,7 +14,9 @@ const ForgotPassword = () => {
     const { forgotPassword } = useAuth({ middleware: 'guest' })
 
     const [email, setEmail] = useState('')
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState<{
+        email?: any[]
+    }>({})
     const [status, setStatus] = useState(null)
 
     const submitForm = event => {
