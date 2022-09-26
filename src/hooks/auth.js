@@ -106,6 +106,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
     return {
         user,
+        isLoading: !user && !error,
         register,
         login,
         forgotPassword,
