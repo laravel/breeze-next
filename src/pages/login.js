@@ -36,7 +36,13 @@ const Login = () => {
     const submitForm = async event => {
         event.preventDefault()
 
-        login({ email, password, remember: shouldRemember, setErrors, setStatus })
+        login({
+            email,
+            password,
+            remember: shouldRemember,
+            setErrors,
+            setStatus,
+        })
     }
 
     return (
@@ -44,12 +50,9 @@ const Login = () => {
             <AuthCard
                 logo={
                     <Link href="/">
-                        <a>
-                            <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-                        </a>
+                        <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
                     </Link>
                 }>
-
                 {/* Session Status */}
                 <AuthSessionStatus className="mb-4" status={status} />
 
@@ -85,7 +88,10 @@ const Login = () => {
                             autoComplete="current-password"
                         />
 
-                        <InputError messages={errors.password} className="mt-2" />
+                        <InputError
+                            messages={errors.password}
+                            className="mt-2"
+                        />
                     </div>
 
                     {/* Remember Me */}
@@ -98,7 +104,9 @@ const Login = () => {
                                 type="checkbox"
                                 name="remember"
                                 className="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                onChange={event => setShouldRemember(event.target.checked)}
+                                onChange={event =>
+                                    setShouldRemember(event.target.checked)
+                                }
                             />
 
                             <span className="ml-2 text-sm text-gray-600">
@@ -108,10 +116,10 @@ const Login = () => {
                     </div>
 
                     <div className="flex items-center justify-end mt-4">
-                        <Link href="/forgot-password">
-                            <a className="underline text-sm text-gray-600 hover:text-gray-900">
-                                Forgot your password?
-                            </a>
+                        <Link
+                            href="/forgot-password"
+                            className="underline text-sm text-gray-600 hover:text-gray-900">
+                            Forgot your password?
                         </Link>
 
                         <Button className="ml-3">Login</Button>
