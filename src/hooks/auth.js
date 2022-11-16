@@ -94,19 +94,23 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         if (! error) {
             await axios.post('/logout').then(() => mutate())
         }
-
-        window.location.pathname = '/login'
     }
 
     useEffect(() => {
-        if (middleware === 'guest' && redirectIfAuthenticated && user)
+        if (middleware === 'guest' && redirectIfAuthenticated && user && !error)
             router.push(redirectIfAuthenticated)
         if (
-            window.location.pathname === '/verify-email' &&
+            router.pathname === '/verify-email' &&
             user?.email_verified_at
         )
             router.push(redirectIfAuthenticated)
-        if (middleware === 'auth' && error) logout()
+        if (
+            router.pathname !== '/login' &&
+            middleware === 'auth' &&
+            (error || user === undefined)
+        ) {
+            router.push('/login');
+        }
     }, [user, error])
 
     return {
