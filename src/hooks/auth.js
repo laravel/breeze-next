@@ -3,7 +3,7 @@ import axios from '@/lib/axios'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
+export const useAuth = ({ middleware, redirectIfAuthenticated, verified } = {}) => {
     const router = useRouter()
 
     const { data: user, error, mutate } = useSWR('/api/user', () =>
@@ -28,6 +28,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .post('/register', props)
             .then(() => mutate())
             .catch(error => {
+                if (error.response.status === 403) return router.push('/verify-email');
+
                 if (error.response.status !== 422) throw error
 
                 setErrors(error.response.data.errors)
@@ -44,6 +46,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .post('/login', props)
             .then(() => mutate())
             .catch(error => {
+                if (error.response.status === 403) return router.push('/verify-email');
+
                 if (error.response.status !== 422) throw error
 
                 setErrors(error.response.data.errors)
@@ -102,8 +106,13 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         if (middleware === 'guest' && redirectIfAuthenticated && user)
             router.push(redirectIfAuthenticated)
         if (
+            verified && process.env.NEXT_PUBLIC_VERIFY_EMAIL == 'true' &&
+            !user?.email_verified_at
+        )
+            router.push('/verify-email')
+        if (
             window.location.pathname === '/verify-email' &&
-            user?.email_verified_at
+            (user?.email_verified_at || process.env.NEXT_PUBLIC_VERIFY_EMAIL != 'true')
         )
             router.push(redirectIfAuthenticated)
         if (middleware === 'auth' && error) logout()

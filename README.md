@@ -33,9 +33,14 @@ php artisan serve
 
 Next, clone this repository and install its dependencies with `yarn install` or `npm install`. Then, copy the `.env.example` file to `.env.local` and supply the URL of your backend:
 
-```
+``` env
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
+# Set this to true if you implement the MustVerifyEmail
+NEXT_PUBLIC_VERIFY_EMAIL=false
 ```
+
+> Note: If your application requires user's email verification, implement the `MustVerifyEmail` as described here: [Email Verification](https://laravel.com/docs/9.x/verification#model-preparation)
+
 
 Finally, run the application via `npm run dev`. The application will be available at `http://localhost:3000`:
 
