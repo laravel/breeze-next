@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 
 const Dropdown = ({
     align = 'right',
-    width = 48,
+    width = '48',
     contentClasses = 'py-1 bg-white',
     trigger,
     children,
@@ -35,7 +35,7 @@ const Dropdown = ({
         <Menu as="div" className="relative">
             {({ open }) => (
                 <>
-                    <Menu.Button as={React.Fragment}>{trigger}</Menu.Button>
+                    <Menu.Button as={Fragment}>{trigger}</Menu.Button>
 
                     <Transition
                         show={open}

@@ -1,4 +1,12 @@
-const InputError = ({ messages = [], className = '' }) => (
+import { FC, InputHTMLAttributes } from 'react'
+
+interface InputErrorProps
+    extends Pick<InputHTMLAttributes<HTMLInputElement>, any> {
+    messages?: any | any[]
+    className?: string
+}
+
+const InputError: FC<InputErrorProps> = ({ messages = [], className = '' }) => (
     <>
         {messages.length > 0 && (
             <>
