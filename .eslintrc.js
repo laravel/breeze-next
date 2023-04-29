@@ -19,7 +19,7 @@ module.exports = {
         ecmaVersion: 2020,
         requireConfigFile: false,
         babelOptions: {
-            preset: ['@babel/preset-react']
+            presets: ['@babel/preset-react']
         },
     },
     plugins: ['react', '@next/eslint-plugin-next', 'prettier'],
