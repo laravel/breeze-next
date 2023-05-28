@@ -14,11 +14,17 @@ import { useState } from 'react'
 
 const Navigation = () => {
     const { user } = useAuth({ middleware: 'auth' })
+
     const router = useRouter()
 
     const { logout } = useAuth()
 
     const [open, setOpen] = useState(false)
+
+    // If user is undefined, it's still loading.
+    if (typeof user === "undefined") {
+        return null; // or return a loading spinner, or some placeholder content.
+    }
 
     return (
         <nav className="bg-white border-b border-gray-100">

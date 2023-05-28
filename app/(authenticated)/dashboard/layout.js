@@ -1,20 +1,18 @@
-import 'tailwindcss/tailwind.css'
-import Navigation from '@/components/Navigation';
+'use client';
 
-export default function RootLayout({ children }) {
+import Navigation from '@/components/Navigation';
+import { useAuth } from '@/hooks/auth';
+
+export default function AuthLayout({ children }) {
+    const { user } = useAuth({ middleware: 'auth' })
+
+    if (typeof user === "undefined") {
+        return null;
+    }
 
   return (
       <div className="min-h-screen bg-gray-100">
           <Navigation />
-
-          {/* Page Heading */}
-          {/* <header className="bg-white shadow">
-              <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                  {header}
-              </div>
-          </header> */}
-
-          {/* Page Content */}
           <main>{children}</main>
       </div>
   )
