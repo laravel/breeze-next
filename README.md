@@ -20,6 +20,9 @@ cd next-backend
 composer require laravel/breeze --dev
 
 php artisan breeze:install api
+
+# Run Migrations
+php artisan migrate
 ```
 
 Next, ensure that your application's `APP_URL` and `FRONTEND_URL` environment variables are set to `http://localhost:8000` and `http://localhost:3000`, respectively.
