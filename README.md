@@ -21,7 +21,7 @@ composer require laravel/breeze --dev
 
 php artisan breeze:install api
 
-# Run Migrations
+# Run migrations...
 php artisan migrate
 ```
 
