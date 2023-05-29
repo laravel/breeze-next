@@ -1,7 +1,8 @@
+'use client';
+
 import ApplicationLogo from '@/components/ApplicationLogo'
 import AuthCard from '@/components/AuthCard'
 import Button from '@/components/Button'
-import GuestLayout from '@/components/Layouts/GuestLayout'
 import Input from '@/components/Input'
 import InputError from '@/components/InputError'
 import Label from '@/components/Label'
@@ -34,7 +35,7 @@ const Register = () => {
     }
 
     return (
-        <GuestLayout>
+        <>
             <AuthCard
                 logo={
                     <Link href="/">
@@ -129,7 +130,7 @@ const Register = () => {
                     </div>
                 </form>
             </AuthCard>
-        </GuestLayout>
+        </>
     )
 }
 

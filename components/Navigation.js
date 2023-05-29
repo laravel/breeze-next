@@ -1,21 +1,30 @@
-import ApplicationLogo from '@/components/ApplicationLogo'
-import Dropdown from '@/components/Dropdown'
+"use client";
+
+import ApplicationLogo from './ApplicationLogo'
+import Dropdown from './Dropdown'
 import Link from 'next/link'
-import NavLink from '@/components/NavLink'
+import NavLink from './NavLink'
 import ResponsiveNavLink, {
     ResponsiveNavButton,
-} from '@/components/ResponsiveNavLink'
-import { DropdownButton } from '@/components/DropdownLink'
+} from './ResponsiveNavLink'
+import { DropdownButton } from './DropdownLink'
 import { useAuth } from '@/hooks/auth'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-const Navigation = ({ user }) => {
+const Navigation = () => {
+    const { user } = useAuth({ middleware: 'auth' })
+
     const router = useRouter()
 
     const { logout } = useAuth()
 
     const [open, setOpen] = useState(false)
+
+    // If user is undefined, it's still loading.
+    if (typeof user === "undefined") {
+        return null; // or return a loading spinner, or some placeholder content.
+    }
 
     return (
         <nav className="bg-white border-b border-gray-100">
