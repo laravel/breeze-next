@@ -1,4 +1,4 @@
-export default function Layout({ children, header }) {
+const AppLayout = ({ children, header }) => {
     return (
         <>
             {header}
@@ -7,3 +7,5 @@ export default function Layout({ children, header }) {
         </>
     )
 }
+
+export default AppLayout
