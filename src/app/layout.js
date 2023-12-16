@@ -1,9 +1,7 @@
-import 'tailwindcss/tailwind.css'
+import '@/app/global.css'
 
 export const metadata = {
     title: 'Laravel',
-    stylesheet:
-        'https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap',
 }
 const RootLayout = ({ children }) => {
     return (
