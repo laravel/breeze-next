@@ -1,4 +1,4 @@
-const AppLayout = ({ children, header }) => {
+const DashboardLayout = ({ children, header }) => {
     return (
         <>
             <header className="bg-white shadow">
@@ -12,4 +12,4 @@ const AppLayout = ({ children, header }) => {
     )
 }
 
-export default AppLayout
+export default DashboardLayout
