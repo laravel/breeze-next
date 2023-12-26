@@ -1,22 +1,34 @@
 import Navigation from '@/components/Layouts/Navigation'
+import MenuNav from '@/components/Layouts/MenuNav'
 import { useAuth } from '@/hooks/auth'
+import Head from 'next/head'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import React from 'react'
 
-const AppLayout = ({ header, children }) => {
+const AppLayout = ({ children }) => {
+    const router = useRouter()
     const { user } = useAuth({ middleware: 'auth' })
+
+     useEffect(() => {
+         if (!user) {
+             router.push('/')
+         }
+     }, [user])
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <Navigation user={user} />
+            <Head>
+                <title>JS-System v3</title>
+            </Head>
+            <main>
+                <Navigation user={user} />
+                <div className="flex justify-between mx-auto px-0 mt-16">
+                    <MenuNav user={user} />
 
-            {/* Page Heading */}
-            <header className="bg-white shadow">
-                <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {header}
+                    <div className="w-5/6 ml-auto p-3">{children}</div>
                 </div>
-            </header>
-
-            {/* Page Content */}
-            <main>{children}</main>
+            </main>
         </div>
     )
 }

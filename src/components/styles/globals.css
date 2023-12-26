@@ -1,0 +1,78 @@
+/* styles/globals.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.font-1{
+    font-family: 'Anuphan', sans-serif;
+}
+.font-2{
+    font-family: 'Prompt', sans-serif;
+}
+.font-3{
+    font-family: 'Kanit', sans-serif;
+}
+.font-4{
+    font-family: 'Sarabun', sans-serif;
+}
+
+.tooltip:before {
+    font-size: x-small;
+}
+
+.gradient-icon {
+    position: relative;
+    display: inline-block;
+  }
+
+  .gradient-icon:before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff0000, #0000ff); /* Specify your gradient colors here */
+    clip-path: inset(0 0 0 0); /* Ensure the gradient is clipped to the icon shape */
+    z-index: -1;
+  }
+
+body {
+    font-family: 'Anuphan', sans-serif;
+  }
+
+  button{
+    font-family: 'Prompt', sans-serif;
+  }
+  input{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+  }
+  nav{
+    font-family: 'Anuphan', sans-serif;
+  }
+
+  .menu-title{
+    font-family: 'Anuphan', sans-serif;
+    font-weight: 700;
+  }
+  ul{
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 800;
+  }
+
+  .badge-gold{
+    color:#ffcc00;
+    background: -webkit-linear-gradient(rgb(255 191 2), rgb(255 150 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .badge-danger{
+    color:#ff0000;
+    background: -webkit-linear-gradient(rgb(255, 2, 2), rgb(128, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+/* Rest of your global styles */
+/* ... */

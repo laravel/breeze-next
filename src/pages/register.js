@@ -16,6 +16,7 @@ const Register = () => {
     })
 
     const [name, setName] = useState('')
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -26,6 +27,7 @@ const Register = () => {
 
         register({
             name,
+            username,
             email,
             password,
             password_confirmation: passwordConfirmation,
@@ -57,6 +59,25 @@ const Register = () => {
                         />
 
                         <InputError messages={errors.name} className="mt-2" />
+                    </div>
+                    {/* Username */}
+                    <div className="mt-4">
+                        <Label htmlFor="username">Userame</Label>
+
+                        <Input
+                            id="username"
+                            type="text"
+                            value={username}
+                            className="block mt-1 w-full"
+                            onChange={event => setUsername(event.target.value)}
+                            required
+                            autoFocus
+                        />
+
+                        <InputError
+                            messages={errors.username}
+                            className="mt-2"
+                        />
                     </div>
 
                     {/* Email Address */}
