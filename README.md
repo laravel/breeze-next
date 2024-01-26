@@ -1,4 +1,4 @@
-# Laravel Breeze - Next.js Edition 🏝️
+# Laravel Breeze - Next.js Edition ▲
 
 ## Introduction
 
