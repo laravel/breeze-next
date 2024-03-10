@@ -14,7 +14,7 @@ const Page = () => {
         redirectIfAuthenticated: '/dashboard',
     })
 
-    const [email, setEmail] = useState<string>('')
+    const [email, setEmail] = useState('')
     const [errors, setErrors] = useState<{ [key: string]: string[] }>({})
     const [status, setStatus] = useState<string | null>(null)
 

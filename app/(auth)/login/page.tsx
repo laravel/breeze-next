@@ -18,8 +18,8 @@ const Login = () => {
         redirectIfAuthenticated: '/dashboard',
     })
 
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [shouldRemember, setShouldRemember] = useState<boolean>(false)
     const [errors, setErrors] = useState<{ [key: string]: string[] }>({})
     const [status, setStatus] = useState<string | null>(null)

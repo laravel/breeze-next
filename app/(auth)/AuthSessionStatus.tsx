@@ -4,7 +4,6 @@ const AuthSessionStatus = ({
     ...props
 }: {
     status: string | null
-    className?: string
 } & React.HTMLAttributes<HTMLDivElement>): JSX.Element | null => (
     <>
         {status && (

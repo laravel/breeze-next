@@ -14,10 +14,10 @@ const Page = () => {
         redirectIfAuthenticated: '/dashboard',
     })
 
-    const [name, setName] = useState<string>('')
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
-    const [passwordConfirmation, setPasswordConfirmation] = useState<string>('')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [errors, setErrors] = useState<{ [key: string]: string[] }>({})
 
     const submitForm = (event: FormEvent<HTMLFormElement>) => {

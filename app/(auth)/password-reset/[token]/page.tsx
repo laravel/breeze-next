@@ -14,9 +14,9 @@ const PasswordReset = () => {
 
     const { resetPassword } = useAuth({ middleware: 'guest' })
 
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
-    const [passwordConfirmation, setPasswordConfirmation] = useState<string>('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [errors, setErrors] = useState<{ [key: string]: string[] }>({})
     const [status, setStatus] = useState<string | null>(null)
 
