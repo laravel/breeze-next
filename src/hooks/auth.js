@@ -99,6 +99,15 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         window.location.pathname = '/login'
     }
 
+    const code = async ({ ...props }) => {
+        try {
+            const response = await axios.post('/api/code-create', props)
+            console.log(response.data)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     useEffect(() => {
         if (middleware === 'guest' && redirectIfAuthenticated && user)
             router.push(redirectIfAuthenticated)
@@ -118,5 +127,6 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         resetPassword,
         resendEmailVerification,
         logout,
+        code,
     }
 }

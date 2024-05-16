@@ -23,7 +23,7 @@ const Navigation = ({ user }) => {
                     <div className="flex">
                         {/* Logo */}
                         <div className="flex-shrink-0 flex items-center">
-                            <Link href="/dashboard">
+                            <Link href="/home">
                                 <ApplicationLogo className="block h-10 w-auto fill-current text-gray-600" />
                             </Link>
                         </div>
@@ -31,9 +31,9 @@ const Navigation = ({ user }) => {
                         {/* Navigation Links */}
                         <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <NavLink
-                                href="/dashboard"
-                                active={usePathname() === '/dashboard'}>
-                                Dashboard
+                                href="/home"
+                                active={usePathname() === '/home'}>
+                                Home
                             </NavLink>
                         </div>
                     </div>
@@ -106,9 +106,9 @@ const Navigation = ({ user }) => {
                 <div className="block sm:hidden">
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
-                            href="/dashboard"
-                            active={usePathname() === '/dashboard'}>
-                            Dashboard
+                            href="/home"
+                            active={usePathname() === '/home'}>
+                            Home
                         </ResponsiveNavLink>
                     </div>
 
