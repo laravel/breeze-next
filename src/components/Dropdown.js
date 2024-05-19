@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Menu, Transition } from '@headlessui/react'
 
 const Dropdown = ({
@@ -28,8 +28,6 @@ const Dropdown = ({
             alignmentClasses = 'origin-top-right right-0'
             break
     }
-
-    const [open, setOpen] = useState(false)
 
     return (
         <Menu as="div" className="relative">
