@@ -45,7 +45,6 @@ const Page = () => {
                     className="block mt-1 w-full"
                     onChange={event => setName(event.target.value)}
                     required
-                    autoFocus
                 />
 
                 <InputError messages={errors.name} className="mt-2" />
@@ -86,9 +85,7 @@ const Page = () => {
 
             {/* Confirm Password */}
             <div className="mt-4">
-                <Label htmlFor="passwordConfirmation">
-                    Confirm Password
-                </Label>
+                <Label htmlFor="passwordConfirmation">Confirm Password</Label>
 
                 <Input
                     id="passwordConfirmation"

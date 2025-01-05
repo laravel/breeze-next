@@ -1,21 +1,23 @@
-import { Nunito } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import '@/app/global.css'
 
-const nunitoFont = Nunito({
+const interFont = Inter({
     subsets: ['latin'],
     display: 'swap',
 })
 
 const RootLayout = ({ children }) => {
     return (
-        <html lang="en" className={nunitoFont.className}>
-            <body className="antialiased">{children}</body>
+        <html lang="en">
+            <body className={`antialiased ${interFont.className}`}>
+                {children}
+            </body>
         </html>
     )
 }
 
 export const metadata = {
-    title: 'Laravel',
+    title: 'Vine Starter Template',
 }
 
 export default RootLayout

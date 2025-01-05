@@ -59,7 +59,6 @@ const Login = () => {
                         className="block mt-1 w-full"
                         onChange={event => setEmail(event.target.value)}
                         required
-                        autoFocus
                     />
 
                     <InputError messages={errors.email} className="mt-2" />
@@ -79,10 +78,7 @@ const Login = () => {
                         autoComplete="current-password"
                     />
 
-                    <InputError
-                        messages={errors.password}
-                        className="mt-2"
-                    />
+                    <InputError messages={errors.password} className="mt-2" />
                 </div>
 
                 {/* Remember Me */}
@@ -109,7 +105,7 @@ const Login = () => {
                 <div className="flex items-center justify-end mt-4">
                     <Link
                         href="/forgot-password"
-                        className="underline text-sm text-gray-600 hover:text-gray-900">
+                        className="text-sm text-gray-600 hover:text-gray-900">
                         Forgot your password?
                     </Link>
 

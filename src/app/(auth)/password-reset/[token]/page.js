@@ -53,7 +53,6 @@ const PasswordReset = () => {
                         className="block mt-1 w-full"
                         onChange={event => setEmail(event.target.value)}
                         required
-                        autoFocus
                     />
 
                     <InputError messages={errors.email} className="mt-2" />
@@ -71,10 +70,7 @@ const PasswordReset = () => {
                         required
                     />
 
-                    <InputError
-                        messages={errors.password}
-                        className="mt-2"
-                    />
+                    <InputError messages={errors.password} className="mt-2" />
                 </div>
 
                 {/* Confirm Password */}
