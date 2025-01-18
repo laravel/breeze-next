@@ -1,11 +1,11 @@
-'use client'
-
-import { useAuth } from '@/hooks/auth'
 import Navigation from '@/app/(app)/Navigation'
 import Loading from '@/app/(app)/Loading'
+import { getUserAction } from '@/actions/actions'
+import UserRefresh from '@/app/(app)/UserRefresh'
 
-const AppLayout = ({ children }) => {
-    const { user } = useAuth({ middleware: 'auth' })
+const AppLayout = async ({ children }) => {
+
+    const user = await getUserAction();
 
     if (!user) {
         return <Loading />
@@ -16,6 +16,8 @@ const AppLayout = ({ children }) => {
             <Navigation user={user} />
 
             <main>{children}</main>
+
+            <UserRefresh />
         </div>
     )
 }
