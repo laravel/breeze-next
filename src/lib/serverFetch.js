@@ -7,18 +7,16 @@ const DEFAULT_HEADERS = {
 /**
  * Forwards cookies from the client to the server if run on the server, adds base URL, and adds additional headers.
  */
-export async function serverFetch(route, config = {}) {
+export async function serverFetch(route, requestInit = {}) {
 
     const options = {
-        config: {
-            ...config,
-            credentials: 'include',
-            cache: 'no-cache',
-        },
+        ...requestInit,
+        credentials: 'include',
+        cache: 'no-cache',
         headers: {
             ...DEFAULT_HEADERS,
             ...(await getHeaders()),
-            ...config.headers,
+            ...requestInit.headers,
         },
     };
 
