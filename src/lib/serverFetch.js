@@ -18,29 +18,34 @@ export async function serverFetch(route, requestInit = {}) {
             ...(await getHeaders()),
             ...requestInit.headers,
         },
-    };
-
-    // Strip leading slash from route.
-    if (route.startsWith('/')) {
-        route = route.slice(1);
     }
 
-    return await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${route}`, options);
+    // Strip leading slash from route.
+    const normalizedRoute = route.startsWith('/') ? route.slice(1) : route
+    const url = new URL(normalizedRoute, process.env.NEXT_PUBLIC_BACKEND_URL)
+
+    const response = await fetch(url, options)
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${route}. Status: ${response.status}`)
+    }
+
+    return await response.json()
 }
 
 const getHeaders = async () => {
     // 💡 If running on server, include the headers of the current request.
-    return typeof window === 'undefined' ? getServerHeaders() : {};
+    return typeof window === 'undefined' ? getServerHeaders() : {}
 }
 
 const getServerHeaders = async () => {
-    const { headers, cookies } = await import('next/headers');
-    const headerStore = await headers();
-    const Referer = headerStore.get('host');
-    const cookie = headerStore.get('cookie');
+    const { headers, cookies } = await import('next/headers')
+    const headerStore = await headers()
+    const Referer = headerStore.get('host')
+    const cookie = headerStore.get('cookie')
 
-    const cookieStore = await cookies();
-    const csrf = cookieStore.get(process.env.LARAVEL_CSRF_COOKIE_NAME || 'XSRF-TOKEN')?.value;
+    const cookieStore = await cookies()
+    const csrf = cookieStore.get(process.env.LARAVEL_CSRF_COOKIE_NAME || 'XSRF-TOKEN')?.value
 
     return {
         ...(Referer && { Referer }),
