@@ -1,12 +1,11 @@
 'use client';
 
 import * as Yup from 'yup';
-import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { useAuth } from '@/hooks/auth';
 import AuthSessionStatus from '@/components/AuthSessionStatus';
-import {  useEffect, useState } from 'react';
+import {  useState } from 'react';
 import {Label} from "@/components/ui/label";
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
@@ -18,20 +17,11 @@ interface Values {
     remember: boolean;
 }
 export default function LoginForm() {
-
-    const searchParams = useSearchParams();
     const [status, setStatus] = useState<string>('');
-
     const { login } = useAuth({
         middleware: 'guest',
         redirectIfAuthenticated: '/dashboard',
     });
-
-    useEffect(() => {
-        const resetToken = searchParams.get('reset');
-        setStatus(resetToken ? atob(resetToken) : '');
-    }, [searchParams]);
-
     const submitForm = async (
         values: Values,
         { setSubmitting, setErrors }: FormikHelpers<Values>,
@@ -47,14 +37,12 @@ export default function LoginForm() {
             setStatus('');
         }
     };
-
     const LoginSchema = Yup.object().shape({
         email: Yup.string()
             .email('Invalid email')
             .required('The email field is required.'),
         password: Yup.string().required('The password field is required.'),
     });
-
     return (
        <>
            <AuthSessionStatus className="mb-4" status={status} />

@@ -1,17 +1,12 @@
-import React from 'react'
-
-const DashboardPage = () => {
-  return (
-    <div className="py-12">
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div className="bg-white overflow-hidden shadow-xs sm:rounded-lg">
-          <div className="p-6 bg-white border-b border-gray-200">
-            {`You're logged in!`}
-          </div>
+export default function DashboardPage() {
+    return (
+        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+            <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+                <div className="bg-muted/50 aspect-video rounded-xl"/>
+                <div className="bg-muted/50 aspect-video rounded-xl"/>
+                <div className="bg-muted/50 aspect-video rounded-xl"/>
+            </div>
+            <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min"/>
         </div>
-      </div>
-    </div>
-  )
+    )
 }
-
-export default DashboardPage
