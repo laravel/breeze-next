@@ -1,17 +1,24 @@
-export default function NotFound() {
-  return (
-    <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-      <div className="max-w-xl mx-auto sm:px-6 lg:px-8">
-        <div className="flex items-center pt-8 sm:justify-start sm:pt-0">
-          <div className="px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider">
-            404
-          </div>
 
-          <div className="ml-4 text-lg text-gray-500 uppercase tracking-wider">
-            Not Found
-          </div>
+import Link from "next/link";
+import {Button} from "@/components/ui/button";
+
+export default function NotFound() {
+    return (
+        <div className="flex items-center min-h-screen px-4 py-12 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+            <div className="w-full space-y-6 text-center">
+                <div className="space-y-3">
+                    <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">404 Page Not Found</h1>
+                    <p className="text-gray-500">Sorry, we couldn&#x27;t find the page you&#x27;re looking for.</p>
+                </div>
+               <Button asChild size="lg">
+                   <Link
+                       href={'/'}
+                       prefetch={false}
+                   >
+                       Return to website
+                   </Link>
+               </Button>
+            </div>
         </div>
-      </div>
-    </div>
-  )
+    )
 }
